@@ -28,9 +28,9 @@
     </dependencies>
 
     <build>
-        <directory>/s/parsons/g/under/mpbarbel/Projects/sqlGuide/target</directory>
-        <outputDirectory>/s/parsons/g/under/mpbarbel/Projects/sqlGuide/target/classes</outputDirectory>
-        <testOutputDirectory>/s/parsons/g/under/mpbarbel/Projects/sqlGuide/target/test-classes</testOutputDirectory>
+        <directory>${project.basedir}/target</directory>
+        <outputDirectory>${project.build.directory}/classes</outputDirectory>
+        <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
