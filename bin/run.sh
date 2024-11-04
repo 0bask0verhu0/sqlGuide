@@ -10,6 +10,12 @@ if [ -n "$PROJECT_PATH" ]; then
     echo "Navigating to project directory: $PROJECT_PATH"
     cd "$PROJECT_PATH" || exit
 
+mkdir -p $BASE_DIR/apache/bin/
+cd $BASE_DIR/apache/bin/
+wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+tar -xvzf appache-maven-3.9.9-bin.tar.gz
+export PATH=$BASE_DIR/apache/bin/
+
     # Clean and compile the project
     echo "Running mvn clean compile"
     mvn clean compile
