@@ -50,14 +50,15 @@ public class sqlGuide {
 		private static ResultSet performQuery (String sql) throws Exception {
 			try (
 				  // connect to the database and query
-				  Connection conn = DriverManager.getConnection(Credential.URL, Credential.USER,
-						Credential.PASSWORD);
+				  Connection conn = DriverManager.getConnection(Credential.URL, Credential.USER, Credential.PASSWORD);
 				  Statement query = conn.createStatement();
 			) {
 				ResultSet results = query.executeQuery(sql);
 				return results;
 			} catch (Exception e) {
-				throw e;
+				System.out.println(String.format("ERROR IN performQuery() -> %s \n", e.toString()));
+				e.printStackTrace();
+				return null;
 			}
 		}
 
@@ -120,11 +121,11 @@ public class sqlGuide {
 
 	static class Credential {
 
-		// shared user with read-only access
-		final static String USER = "cs314-db";
-		final static String PASSWORD = "eiK5liet1uej";
-		// connection information when using port forwarding from localhost
-		final static String URL = "jdbc:mariadb://localhost:3306/cs314";
+		 // shared user with read-only access
+	final static String USER = "cs314-db";
+	final static String PASSWORD = "eiK5liet1uej";
+	// connection information when using port forwarding from localhost
+	final static String URL = "jdbc:mariadb://faure.cs.colostate.edu/cs314";
 	}
 
 	static class Report {
